@@ -3,6 +3,8 @@ import CardList from "../components/CardList";
 import SearchBox from '../components/SearchBox';
 import './App.css';
 import Scroll from '../components/Scroll';
+import ErrorBoundry from "../components/ErrorBoundry";
+
 
 const App = () => {
     const [robots, setRobots] = useState([]);
@@ -30,7 +32,9 @@ const App = () => {
    <h1 className = 'f1'>Robofriends</h1>
    <SearchBox searchChange = {onSearchChange}/>
    <Scroll>
-       <CardList robots= {filterRobots} />
+         <ErrorBoundry>
+            <CardList robots= {filterRobots} />
+        </ErrorBoundry>
    </Scroll>
 </div>
 );
